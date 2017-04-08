@@ -13,9 +13,11 @@
 		17302CDD1E97FEFD00795A63 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17302CDB1E97FEFD00795A63 /* Main.storyboard */; };
 		17302CDF1E97FEFD00795A63 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17302CDE1E97FEFD00795A63 /* Assets.xcassets */; };
 		17302CE21E97FEFD00795A63 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17302CE01E97FEFD00795A63 /* LaunchScreen.storyboard */; };
+		85DE6EA09769DDBEF0B7CF19 /* Pods_Bitcoinzy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02F49C159269A6C7FF40BB2C /* Pods_Bitcoinzy.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		02F49C159269A6C7FF40BB2C /* Pods_Bitcoinzy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bitcoinzy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		17302CD21E97FEFD00795A63 /* Bitcoinzy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bitcoinzy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17302CD51E97FEFD00795A63 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		17302CD71E97FEFD00795A63 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -24,6 +26,8 @@
 		17302CDE1E97FEFD00795A63 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		17302CE11E97FEFD00795A63 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		17302CE31E97FEFD00795A63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		82ED48B729FC9613F51F840A /* Pods-Bitcoinzy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bitcoinzy.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bitcoinzy/Pods-Bitcoinzy.release.xcconfig"; sourceTree = "<group>"; };
+		85B522D89A08315D7D075BDA /* Pods-Bitcoinzy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bitcoinzy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bitcoinzy/Pods-Bitcoinzy.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85DE6EA09769DDBEF0B7CF19 /* Pods_Bitcoinzy.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,8 +45,10 @@
 		17302CC91E97FEFD00795A63 = {
 			isa = PBXGroup;
 			children = (
-				17302CD41E97FEFD00795A63 /* Bitquinzy */,
+				17302CD41E97FEFD00795A63 /* Bitcoinzy */,
 				17302CD31E97FEFD00795A63 /* Products */,
+				43EAFA01E10377C6D35509BB /* Pods */,
+				E8E1AF58157441D29FE585C0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -53,7 +60,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		17302CD41E97FEFD00795A63 /* Bitquinzy */ = {
+		17302CD41E97FEFD00795A63 /* Bitcoinzy */ = {
 			isa = PBXGroup;
 			children = (
 				17302CD51E97FEFD00795A63 /* AppDelegate.swift */,
@@ -64,7 +71,25 @@
 				17302CE01E97FEFD00795A63 /* LaunchScreen.storyboard */,
 				17302CE31E97FEFD00795A63 /* Info.plist */,
 			);
+			name = Bitcoinzy;
 			path = Bitquinzy;
+			sourceTree = "<group>";
+		};
+		43EAFA01E10377C6D35509BB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				85B522D89A08315D7D075BDA /* Pods-Bitcoinzy.debug.xcconfig */,
+				82ED48B729FC9613F51F840A /* Pods-Bitcoinzy.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E8E1AF58157441D29FE585C0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				02F49C159269A6C7FF40BB2C /* Pods_Bitcoinzy.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +99,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 17302CE61E97FEFD00795A63 /* Build configuration list for PBXNativeTarget "Bitcoinzy" */;
 			buildPhases = (
+				6202F9E6ED9355E4DCE45D19 /* [CP] Check Pods Manifest.lock */,
 				17302CCE1E97FEFD00795A63 /* Sources */,
 				17302CCF1E97FEFD00795A63 /* Frameworks */,
 				17302CD01E97FEFD00795A63 /* Resources */,
+				E92E19049C5CBB249006CEE8 /* [CP] Embed Pods Frameworks */,
+				3EF9A1C828E3A97F45947C5E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -134,6 +162,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3EF9A1C828E3A97F45947C5E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Bitcoinzy/Pods-Bitcoinzy-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6202F9E6ED9355E4DCE45D19 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E92E19049C5CBB249006CEE8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Bitcoinzy/Pods-Bitcoinzy-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		17302CCE1E97FEFD00795A63 /* Sources */ = {
@@ -263,6 +339,7 @@
 		};
 		17302CE71E97FEFD00795A63 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 85B522D89A08315D7D075BDA /* Pods-Bitcoinzy.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = Q7YASEZ67U;
@@ -276,6 +353,7 @@
 		};
 		17302CE81E97FEFD00795A63 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 82ED48B729FC9613F51F840A /* Pods-Bitcoinzy.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = Q7YASEZ67U;
@@ -306,6 +384,7 @@
 				17302CE81E97FEFD00795A63 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
