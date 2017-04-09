@@ -56,6 +56,7 @@ class FirstViewController: UIViewController {
             print("unknown Button touched")
         }
         
+        // Rebuild new array with needed days
         if resectionize {
             for i in 0 ..< days {
                 dataSection.append(yearData[i])
@@ -64,12 +65,11 @@ class FirstViewController: UIViewController {
         
         updateChart(with: dataSection)
     }
-    
-    
-    
+
     override func viewWillAppear(_ animated: Bool) {
         retrieveBTCExchangeRate(for: "USD")
         
+        // Get values for past 365 days
         let initialYear = (Date.timeIntervalSinceReferenceDate + Date.timeIntervalBetween1970AndReferenceDate) - 365*24*60*60
         retrieveBTCHistoricData(for: "USD", since: Int(initialYear))
 
@@ -80,9 +80,6 @@ class FirstViewController: UIViewController {
 
     }
    
-    
-        
-    
     func updateChart(with data: [Dictionary<String, Any>]) {
         var dataEntries: [ChartDataEntry] = []
 
@@ -92,17 +89,29 @@ class FirstViewController: UIViewController {
             dataEntries.append(dataEntry)
             count = count + 1
         }
-        let chartDataSet = LineChartDataSet(values: dataEntries, label: "Year history")
-        chartDataSet.drawCirclesEnabled = false
-        chartDataSet.setColor(NSUIColor.green)
-        chartDataSet.lineWidth = chartDataSet.lineWidth * 2
-        //print("Line: \(chartDataSet.lineWidth)")
-        let chartData = LineChartData(dataSet: chartDataSet)
-        historyView.legend.enabled = false
-        historyView.rightAxis.enabled = false
+        let chartDataSet = LineChartDataSet(values: dataEntries, label: "History")
         
+        // Format line graph
+        chartDataSet.drawCirclesEnabled = false
+        chartDataSet.setColor(#colorLiteral(red: 0.003921568627, green: 0.8823529412, blue: 0.003921568627, alpha: 1))
+        chartDataSet.lineWidth = chartDataSet.lineWidth * 1.5
+        chartDataSet.drawValuesEnabled = false
+        
+        let chartData = LineChartData(dataSet: chartDataSet)
+
+        // Remove unnecessary labels
+        historyView.rightAxis.enabled = false
+        historyView.chartDescription?.text = ""
+        historyView.legend.enabled = false
+        
+        // Format axis and grids
+        let xAxis = historyView.xAxis
+        let yAxis = historyView.leftAxis
+        yAxis.gridColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.1030072774)
+        xAxis.gridColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.1030072774)
+        xAxis.labelPosition = .bottom
+
         historyView.data = chartData
-        //historyView.animate(xAxisDuration: 3000)
         
     }
     
@@ -122,7 +131,7 @@ class FirstViewController: UIViewController {
             case .success(let value):
                 let json = JSON(value)
                 
-                // always represent rate with 2 decimals
+                // Read JSON data
                 let rate = json["ask"].floatValue
                 let open = json["open"]["day"].floatValue
                 let high = json["high"].floatValue
@@ -130,12 +139,12 @@ class FirstViewController: UIViewController {
                 let vol = json["volume"].floatValue
                 let volPerc = json["volume_percent"].floatValue
 
+                // Always represent rate with 2 decimals and thousand seperator
                 let formatter = NumberFormatter()
                 formatter.numberStyle = .decimal
                 formatter.minimumFractionDigits = 2
                 formatter.maximumFractionDigits = 2
 
-                
                 self.rateDisplayLabel.text =  formatter.string(from: NSNumber(value: rate))
                 self.openDisplayLabel.text =  formatter.string(from: NSNumber(value: open))
                 self.highDisplayLabel.text =  formatter.string(from: NSNumber(value: high))
