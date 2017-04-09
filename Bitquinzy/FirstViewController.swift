@@ -13,9 +13,18 @@ import Charts
 
 class FirstViewController: UIViewController {
     
+    // All labels containing variable values
     @IBOutlet weak var rateDisplayLabel: UILabel!
+    @IBOutlet weak var openDisplayLabel: UILabel!
+    @IBOutlet weak var highDisplayLabel: UILabel!
+    @IBOutlet weak var lowDisplayLabel: UILabel!
+    @IBOutlet weak var volumeDisplayLabel: UILabel!
+    @IBOutlet weak var volumePercDisplayLabel: UILabel!
+    
+    
     @IBOutlet weak var historyView: LineChartView!
     @IBOutlet var timeFrameSelection: [UIButton]!
+    var yearData: [Dictionary<String, Any>] = []
     
     @IBAction func onChangeTimeFrame(_ sender: UIButton) {
         for button in timeFrameSelection {
@@ -23,27 +32,37 @@ class FirstViewController: UIViewController {
         }
         sender.isSelected = !sender.isSelected
         
-        var timeFrame = Date.timeIntervalSinceReferenceDate + Date.timeIntervalBetween1970AndReferenceDate
-        
+        // Extract certain values from yearData
+        var dataSection: [Dictionary<String, Any>] = []
+        var days = 0
+        var resectionize = true
+
         switch sender.currentTitle! {
         case "Y":
-            timeFrame = timeFrame - (365*24*60*60)
+            resectionize = false
+            dataSection = yearData
         case "6M":
-            timeFrame = timeFrame - (183*24*60*60)
+            days = 180
         case "3M":
-            timeFrame = timeFrame - (90*24*60*60)
+            days = 90
         case "M":
-            timeFrame = timeFrame - (31*24*60*60)
+            days = 30
         case "W":
-            timeFrame = timeFrame - (7*24*60*60)
+            days = 7
         case "D":
-            timeFrame = timeFrame - (24*60*60)
+            resectionize = false
+            // TODO fetch hourly data
         default:
             print("unknown Button touched")
         }
         
-        retrieveBTCHistoricData(for: "USD", since: Int(timeFrame))
-
+        if resectionize {
+            for i in 0 ..< days {
+                dataSection.append(yearData[i])
+            }
+        }
+        
+        updateChart(with: dataSection)
     }
     
     
@@ -58,6 +77,7 @@ class FirstViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
     }
    
     
@@ -74,14 +94,27 @@ class FirstViewController: UIViewController {
         }
         let chartDataSet = LineChartDataSet(values: dataEntries, label: "Year history")
         chartDataSet.drawCirclesEnabled = false
+        chartDataSet.setColor(NSUIColor.green)
+        chartDataSet.lineWidth = chartDataSet.lineWidth * 2
+        //print("Line: \(chartDataSet.lineWidth)")
         let chartData = LineChartData(dataSet: chartDataSet)
+        historyView.legend.enabled = false
+        historyView.rightAxis.enabled = false
+        
         historyView.data = chartData
+        //historyView.animate(xAxisDuration: 3000)
         
     }
     
 
     func retrieveBTCExchangeRate(for currency: String) {
         self.rateDisplayLabel.text =  "updating..."
+        self.rateDisplayLabel.text =  "..."
+        self.openDisplayLabel.text =  "..."
+        self.highDisplayLabel.text =  "..."
+        self.lowDisplayLabel.text =  "..."
+        self.volumeDisplayLabel.text = "..."
+        self.volumePercDisplayLabel.text = "..."
 
         let url = "https://apiv2.bitcoinaverage.com/indices/local/ticker/BTC\(currency)"
         Alamofire.request(url, method: .get).validate().responseJSON { response in
@@ -91,7 +124,25 @@ class FirstViewController: UIViewController {
                 
                 // always represent rate with 2 decimals
                 let rate = json["ask"].floatValue
-                self.rateDisplayLabel.text =  String(format: "%.2f", arguments: [rate])
+                let open = json["open"]["day"].floatValue
+                let high = json["high"].floatValue
+                let low = json["low"].floatValue
+                let vol = json["volume"].floatValue
+                let volPerc = json["volume_percent"].floatValue
+
+                let formatter = NumberFormatter()
+                formatter.numberStyle = .decimal
+                formatter.minimumFractionDigits = 2
+                formatter.maximumFractionDigits = 2
+
+                
+                self.rateDisplayLabel.text =  formatter.string(from: NSNumber(value: rate))
+                self.openDisplayLabel.text =  formatter.string(from: NSNumber(value: open))
+                self.highDisplayLabel.text =  formatter.string(from: NSNumber(value: high))
+                self.lowDisplayLabel.text =  formatter.string(from: NSNumber(value: low))
+                self.volumeDisplayLabel.text =  formatter.string(from: NSNumber(value: vol))
+                self.volumePercDisplayLabel.text =  String(format: "%.2f %%", arguments: [volPerc])
+
                 
             case .failure(let error):
                 print(error)
@@ -126,7 +177,9 @@ class FirstViewController: UIViewController {
                     
                     dateHighArray.append(["value": value, "date": date!])
                 }
+                
                 self.updateChart(with: dateHighArray)
+                self.yearData = dateHighArray
 
                 
             case .failure(let error):
