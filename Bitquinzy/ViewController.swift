@@ -11,7 +11,7 @@ import SwiftyJSON
 import Alamofire
 import Charts
 
-class FirstViewController: UIViewController {
+class ViewController: UIViewController {
     
     // All labels containing variable values
     @IBOutlet weak var rateDisplayLabel: UILabel!
@@ -21,10 +21,12 @@ class FirstViewController: UIViewController {
     @IBOutlet weak var volumeDisplayLabel: UILabel!
     @IBOutlet weak var volumePercDisplayLabel: UILabel!
     
-    
     @IBOutlet weak var historyView: LineChartView!
     @IBOutlet var timeFrameSelection: [UIButton]!
-    var yearData: [Dictionary<String, Any>] = []
+    
+    // Arrays of data fetched on launch
+    var yearData: [Dictionary<String, Any>] = []    // daily data for year
+    var minuteData: [Dictionary<String, Any>] = []  // minutely data for past 24h
     
     @IBAction func onChangeTimeFrame(_ sender: UIButton) {
         for button in timeFrameSelection {
@@ -37,6 +39,10 @@ class FirstViewController: UIViewController {
         var days = 0
         var resectionize = true
 
+        // If empty, JSON download failed before
+        let yearDataExists = (yearData.count > 0)
+        let minuteDataExists = (minuteData.count > 0)
+        
         switch sender.currentTitle! {
         case "Y":
             resectionize = false
@@ -51,19 +57,20 @@ class FirstViewController: UIViewController {
             days = 7
         case "D":
             resectionize = false
-            // TODO fetch hourly data
+            dataSection = minuteData
         default:
             print("unknown Button touched")
         }
         
-        // Rebuild new array with needed days
-        if resectionize {
-            for i in 0 ..< days {
-                dataSection.append(yearData[i])
+        // Rebuild new array with needed days & update chart
+        if yearDataExists && minuteDataExists {
+            if resectionize {
+                for i in 0 ..< days {
+                    dataSection.append(yearData[i])
+                }
+                updateChart(with: dataSection)
             }
         }
-        
-        updateChart(with: dataSection)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -72,6 +79,7 @@ class FirstViewController: UIViewController {
         // Get values for past 365 days
         let initialYear = (Date.timeIntervalSinceReferenceDate + Date.timeIntervalBetween1970AndReferenceDate) - 365*24*60*60
         retrieveBTCHistoricData(for: "USD", since: Int(initialYear))
+        retrieveBTCMinuteData(for: "USD")
 
     }
     
@@ -114,16 +122,9 @@ class FirstViewController: UIViewController {
         historyView.data = chartData
         
     }
-    
 
     func retrieveBTCExchangeRate(for currency: String) {
-        self.rateDisplayLabel.text =  "updating..."
-        self.rateDisplayLabel.text =  "..."
-        self.openDisplayLabel.text =  "..."
-        self.highDisplayLabel.text =  "..."
-        self.lowDisplayLabel.text =  "..."
-        self.volumeDisplayLabel.text = "..."
-        self.volumePercDisplayLabel.text = "..."
+        setUpdateLabels()
 
         let url = "https://apiv2.bitcoinaverage.com/indices/local/ticker/BTC\(currency)"
         Alamofire.request(url, method: .get).validate().responseJSON { response in
@@ -151,16 +152,60 @@ class FirstViewController: UIViewController {
                 self.lowDisplayLabel.text =  formatter.string(from: NSNumber(value: low))
                 self.volumeDisplayLabel.text =  formatter.string(from: NSNumber(value: vol))
                 self.volumePercDisplayLabel.text =  String(format: "%.2f %%", arguments: [volPerc])
-
                 
             case .failure(let error):
                 print(error)
+                print("Failed to retrieve current data")
             }
         }
-        
     }
     
-    
+    func retrieveBTCMinuteData(for currency: String) {
+        print("Fetching day's minutely data")
+        var dateHighArray: [Dictionary<String, Any>] = []
+        
+        let url = "https://apiv2.bitcoinaverage.com/indices/local/history/BTC\(currency)?period=daily&format=json"
+        Alamofire.request(url, method: .get).validate().responseJSON { response in
+            
+            switch response.result {
+            case .success(let value):
+                print("Fetched!")
+                
+                let json = JSON(value)
+                let dailyArray = json.arrayValue
+                
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "yyyy-MM-dd hh:mm:ss"
+                
+                // Create simple Array of Dictionaries containing Time and Average-value
+                for day in dailyArray {
+                    let dateString = (day["time"].stringValue)
+                    let date = dateFormatter.date(from: dateString)
+                    let value = day["average"].floatValue
+                    if let time = date {
+                        // FIXME: Midnight unwraps as nil!
+                        dateHighArray.append(["value": value, "date": time])
+                    }
+                }
+                
+                
+                self.minuteData = dateHighArray
+
+                
+                
+            case .failure(let error):
+                print(error)
+                print("Failed to retrieve minute data")
+                
+            }
+            for valuePair in dateHighArray {
+                print(valuePair["value"]!)
+                print(valuePair["date"]!)
+                
+            }
+        }
+    }
+
     func retrieveBTCHistoricData(for currency: String, since timestamp: Int) {
         print("Fetching Historic data")
         var dateHighArray: [Dictionary<String, Any>] = []
@@ -193,16 +238,20 @@ class FirstViewController: UIViewController {
                 
             case .failure(let error):
                 print(error)
-                print("Failed!")
-
-            }
-            for valuePair in dateHighArray {
-               print(valuePair["value"]!)
-               print(valuePair["date"]!)
+                print("Failed to retrieve year data")
 
             }
         }
     }
-
+    
+    private func setUpdateLabels() {
+        self.rateDisplayLabel.text =  "updating..."
+        self.rateDisplayLabel.text =  "..."
+        self.openDisplayLabel.text =  "..."
+        self.highDisplayLabel.text =  "..."
+        self.lowDisplayLabel.text =  "..."
+        self.volumeDisplayLabel.text = "..."
+        self.volumePercDisplayLabel.text = "..."
+    }
 }
 

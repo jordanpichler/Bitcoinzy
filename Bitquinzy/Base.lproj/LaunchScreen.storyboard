@@ -22,13 +22,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bitcoinzy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wlw-Iy-PZ2">
-                                <rect key="frame" x="78.5" y="307" width="219" height="53.5"/>
-                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="42"/>
+                                <rect key="frame" x="104.5" y="305" width="167.5" height="57.5"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="42"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.55084694329999995" green="1" blue="0.33053321959999998" alpha="0.60645869006849318" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.3081101151989179" green="0.88338753172588835" blue="0.14330695464362295" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Wlw-Iy-PZ2" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="1W6-sQ-J7J"/>
                             <constraint firstItem="Wlw-Iy-PZ2" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="RvW-F3-McW"/>
