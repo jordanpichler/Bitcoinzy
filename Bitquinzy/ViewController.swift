@@ -68,8 +68,8 @@ class ViewController: UIViewController {
                 for i in 0 ..< days {
                     dataSection.append(yearData[i])
                 }
-                updateChart(with: dataSection)
             }
+            updateChart(with: dataSection)
         }
     }
 
