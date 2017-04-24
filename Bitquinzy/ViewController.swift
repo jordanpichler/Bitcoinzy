@@ -11,6 +11,8 @@ import SwiftyJSON
 import Alamofire
 import Charts
 
+// Always name ViewControllers after their purpose
+// E.g BitcoinOverviewViewController
 class ViewController: UIViewController {
     
     // All labels containing variable values
@@ -27,6 +29,23 @@ class ViewController: UIViewController {
     // Arrays of data fetched on launch
     var yearData: [Dictionary<String, Any>] = []    // daily data for year
     var minuteData: [Dictionary<String, Any>] = []  // minutely data for past 24h
+    // can be written more elgantly as
+    // var yearData = [[String: Any]]()
+    
+    /*
+        I always like to group functions into 
+        * UIViewController lifecycle (viewDidLoad, viewWillAppear...) + styling (layoutViews = setUpLabels)
+        * Container management (if necessary) (willMoveToParentViewController, didMoveToParentViewController)
+        * IBActions
+        * logic: updateChart(), ...
+        * networking
+     */
+    
+    /*
+        In General it makes sense to have the model separated from the viewControllers, so an own networking class, bitcoinRateDataObject, ....
+        This makes apps much more scalable and easier to maintain. In this case of a simple one-view app, your approach is probably the easiest, but still, not easy to extend in case you want to add new screens to your app.
+     */
+    
     
     @IBAction func onChangeTimeFrame(_ sender: UIButton) {
         for button in timeFrameSelection {
@@ -61,6 +80,25 @@ class ViewController: UIViewController {
         default:
             print("unknown Button touched")
         }
+        //<-- This is dangerous. Never use the title of a button to identify which action should be done. This will run into issues eventually - latest if you want to localize an app, where "Y"("Year") is e.g. "J"("Jahr")
+        // Why not have an IBAction for every button that internally call different functions like this
+        /*
+         
+         @IBAction func timeChangedYear(_ sender: UIButton) {
+            changeTimeFrame(365)
+         }
+         
+         ...
+         
+         
+         func changeTimeFrame(newTimeFrameDays: Int) {
+         // do stuff
+         }
+         
+         
+         */
+        
+        
         
         // Rebuild new array with needed days & update chart
         if yearDataExists && minuteDataExists {
@@ -74,10 +112,33 @@ class ViewController: UIViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        // never forget to call super.viewWillAppear
+        // it might make sense to have an enum of supported currencies so that you don't have to always use the same string (and let the compiler help you prevent mistakes)
+        /*
+         
+         enum CurrencyType: String {
+         
+            case usd = "USD"
+            case euro = "euro"
+         
+         }
+         
+         Then you could change your function to
+         func retrieveBTCExchangeRate(for currency: CurrencyType)
+         
+         and prevent mistakes like calling retrieveBTCExchangeRate(for: "UDS"), instead it would be retrieveBTCExchangeRate(for: .usd)
+         same for historic and minute data
+         
+         */
+        
         retrieveBTCExchangeRate(for: "USD")
         
         // Get values for past 365 days
         let initialYear = (Date.timeIntervalSinceReferenceDate + Date.timeIntervalBetween1970AndReferenceDate) - 365*24*60*60
+        // I think let d = Date(timeIntervalSinceNow: -365*24*60*60) should work as well
+        // probably needs d.components.year or sth though, not sure if better, but that's what i would have done
+        
+        
         retrieveBTCHistoricData(for: "USD", since: Int(initialYear))
         retrieveBTCMinuteData(for: "USD")
 
@@ -85,6 +146,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Better remove this function if you don't need it at all
 
     }
    
@@ -153,6 +215,11 @@ class ViewController: UIViewController {
                 self.volumeDisplayLabel.text =  formatter.string(from: NSNumber(value: vol))
                 self.volumePercDisplayLabel.text =  String(format: "%.2f %%", arguments: [volPerc])
                 
+                /*
+                    Looks good, but here you have to be careful with threading. It might happen, that Alamofire doesnt respond on main thread, but all UI changes need to be done on main thread. If not wird UI issues can occurr.
+                 */
+                
+                
             case .failure(let error):
                 print(error)
                 print("Failed to retrieve current data")
@@ -163,6 +230,7 @@ class ViewController: UIViewController {
     func retrieveBTCMinuteData(for currency: String) {
         print("Fetching day's minutely data")
         var dateHighArray: [Dictionary<String, Any>] = []
+        // this can be moved into the callback of your request i guess
         
         let url = "https://apiv2.bitcoinaverage.com/indices/local/history/BTC\(currency)?period=daily&format=json"
         Alamofire.request(url, method: .get).validate().responseJSON { response in
