@@ -16,6 +16,7 @@
 		17DCDE8420DAC7DA008CE86A /* HeaderTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DCDE8320DAC7DA008CE86A /* HeaderTitle.swift */; };
 		17DCDE8620DAC905008CE86A /* UIView+ConstrainVisualFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DCDE8520DAC905008CE86A /* UIView+ConstrainVisualFormat.swift */; };
 		17DCDE8B20DAD28F008CE86A /* ValueContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DCDE8A20DAD28F008CE86A /* ValueContainerView.swift */; };
+		17DCDE8D20DAD5BB008CE86A /* ValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DCDE8C20DAD5BB008CE86A /* ValueView.swift */; };
 		85DE6EA09769DDBEF0B7CF19 /* Pods_Bitcoinzy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02F49C159269A6C7FF40BB2C /* Pods_Bitcoinzy.framework */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +33,7 @@
 		17DCDE8320DAC7DA008CE86A /* HeaderTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderTitle.swift; sourceTree = "<group>"; };
 		17DCDE8520DAC905008CE86A /* UIView+ConstrainVisualFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+ConstrainVisualFormat.swift"; sourceTree = "<group>"; };
 		17DCDE8A20DAD28F008CE86A /* ValueContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueContainerView.swift; sourceTree = "<group>"; };
+		17DCDE8C20DAD5BB008CE86A /* ValueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueView.swift; sourceTree = "<group>"; };
 		82ED48B729FC9613F51F840A /* Pods-Bitcoinzy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bitcoinzy.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bitcoinzy/Pods-Bitcoinzy.release.xcconfig"; sourceTree = "<group>"; };
 		85B522D89A08315D7D075BDA /* Pods-Bitcoinzy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bitcoinzy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bitcoinzy/Pods-Bitcoinzy.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -86,6 +88,7 @@
 			children = (
 				17DCDE8320DAC7DA008CE86A /* HeaderTitle.swift */,
 				17DCDE8A20DAD28F008CE86A /* ValueContainerView.swift */,
+				17DCDE8C20DAD5BB008CE86A /* ValueView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -248,6 +251,7 @@
 				17302CD61E97FEFD00795A63 /* AppDelegate.swift in Sources */,
 				17DCDE7D20DAC3F6008CE86A /* BitcoinOverviewViewController.swift in Sources */,
 				17DCDE8620DAC905008CE86A /* UIView+ConstrainVisualFormat.swift in Sources */,
+				17DCDE8D20DAD5BB008CE86A /* ValueView.swift in Sources */,
 				17302CD81E97FEFD00795A63 /* ViewController.swift in Sources */,
 				17DCDE8420DAC7DA008CE86A /* HeaderTitle.swift in Sources */,
 			);

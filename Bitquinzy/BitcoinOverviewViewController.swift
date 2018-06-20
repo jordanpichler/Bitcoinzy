@@ -20,5 +20,11 @@ class BitcoinOverviewViewController: UIViewController {
         view.addConstraintsWithFormat(format: "V:|[v0]", views: header)
         view.addConstraintsWithFormat(format: "H:|[v0]|", views: header)
         header.setupConstraints()
+        
+        let eixampleValue = ValueView(title: "Oye Tío", value: 6969)
+        view.addSubview(eixampleValue)
+        view.addConstraintsWithFormat(format: "V:[v0][v1]", views: header, eixampleValue)
+        view.addConstraintsWithFormat(format: "H:|[v0]", views: eixampleValue)
+        eixampleValue.setupConstraints()
     }
 }
