@@ -1,9 +1,9 @@
 //
 //  FirstViewController.swift
-//  Bitquinzy
+//  Bitcoinzy
 //
 //  Created by Jordan Pichler on 07/04/2017.
-//  Copyright © 2017 Jordan A. Pichler. All rights reserved.
+//  Copyright © 2018 Jordan A. Pichler. All rights reserved.
 //
 
 import UIKit

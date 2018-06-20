@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16F43c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="9pv-A4-QxB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="9pv-A4-QxB">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,11 +22,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Rate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5h3-2m-uqY">
-                                <rect key="frame" x="20" y="50" width="374" height="55"/>
+                                <rect key="frame" x="20" y="50" width="374" height="75"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="ZFX-VC-Oqd"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="45"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="45"/>
                                 <color key="textColor" red="0.14930996192893398" green="0.14930996192893398" blue="0.14930996192893398" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
@@ -37,17 +36,17 @@
                                 </variation>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DzS-Td-9Ll" userLabel="Seperator Line">
-                                <rect key="frame" x="20" y="105" width="374" height="1"/>
+                                <rect key="frame" x="20" y="125" width="374" height="1"/>
                                 <color key="backgroundColor" red="0.87210501269035534" green="0.87210501269035534" blue="0.87210501269035534" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="vKY-sO-tAv"/>
                                 </constraints>
                             </view>
                             <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D8M-ab-eDV" userLabel="Current Data">
-                                <rect key="frame" x="0.0" y="106" width="414" height="290"/>
+                                <rect key="frame" x="0.0" y="126" width="414" height="290"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 BTC in USD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="McO-jk-w8J">
-                                        <rect key="frame" x="20" y="25" width="115" height="24"/>
+                                        <rect key="frame" x="20" y="25" width="113" height="24"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -324,14 +323,14 @@
                                         <exclude reference="ai6-Aw-weA"/>
                                         <exclude reference="es0-gF-mYt"/>
                                         <exclude reference="zo2-Pf-22q"/>
+                                        <exclude reference="G4V-1g-KOH"/>
+                                        <exclude reference="Qll-cM-cKI"/>
+                                        <exclude reference="p2y-th-d0D"/>
                                         <exclude reference="3bW-Yh-7Ic"/>
                                         <exclude reference="O9K-XB-Bgb"/>
                                         <exclude reference="PxK-JL-Kae"/>
                                         <exclude reference="Zws-kT-4ok"/>
                                         <exclude reference="wCD-Yw-8ag"/>
-                                        <exclude reference="G4V-1g-KOH"/>
-                                        <exclude reference="Qll-cM-cKI"/>
-                                        <exclude reference="p2y-th-d0D"/>
                                         <exclude reference="yzN-DU-dRy"/>
                                         <exclude reference="8aM-64-zTi"/>
                                         <exclude reference="Gwh-F7-aRa"/>
@@ -350,13 +349,13 @@
                                     <mask key="constraints">
                                         <include reference="es0-gF-mYt"/>
                                         <include reference="zo2-Pf-22q"/>
+                                        <include reference="G4V-1g-KOH"/>
+                                        <include reference="Qll-cM-cKI"/>
                                         <include reference="3bW-Yh-7Ic"/>
                                         <include reference="O9K-XB-Bgb"/>
                                         <include reference="PxK-JL-Kae"/>
                                         <include reference="Zws-kT-4ok"/>
                                         <include reference="wCD-Yw-8ag"/>
-                                        <include reference="G4V-1g-KOH"/>
-                                        <include reference="Qll-cM-cKI"/>
                                         <include reference="yzN-DU-dRy"/>
                                         <include reference="8aM-64-zTi"/>
                                         <include reference="Gwh-F7-aRa"/>
@@ -390,11 +389,11 @@
                                 <exclude reference="Ham-PW-Bze"/>
                                 <exclude reference="I9R-Ah-Xqp"/>
                                 <exclude reference="eY7-BX-KFa"/>
+                                <exclude reference="eac-Hn-W5i"/>
                                 <exclude reference="8KC-Yz-iOQ"/>
                                 <exclude reference="Rsi-Cj-l2A"/>
                                 <exclude reference="nfb-7f-yC3"/>
                                 <exclude reference="shR-3f-1La"/>
-                                <exclude reference="eac-Hn-W5i"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact-widthClass=regular">
@@ -416,11 +415,11 @@
                             <mask key="constraints">
                                 <include reference="I9R-Ah-Xqp"/>
                                 <include reference="eY7-BX-KFa"/>
+                                <include reference="eac-Hn-W5i"/>
                                 <include reference="8KC-Yz-iOQ"/>
                                 <include reference="Rsi-Cj-l2A"/>
                                 <include reference="nfb-7f-yC3"/>
                                 <include reference="shR-3f-1La"/>
-                                <include reference="eac-Hn-W5i"/>
                             </mask>
                         </variation>
                     </view>

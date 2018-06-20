@@ -9,9 +9,13 @@
 /* Begin PBXBuildFile section */
 		17302CD61E97FEFD00795A63 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17302CD51E97FEFD00795A63 /* AppDelegate.swift */; };
 		17302CD81E97FEFD00795A63 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17302CD71E97FEFD00795A63 /* ViewController.swift */; };
-		17302CDD1E97FEFD00795A63 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17302CDB1E97FEFD00795A63 /* Main.storyboard */; };
-		17302CDF1E97FEFD00795A63 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17302CDE1E97FEFD00795A63 /* Assets.xcassets */; };
 		17302CE21E97FEFD00795A63 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17302CE01E97FEFD00795A63 /* LaunchScreen.storyboard */; };
+		17DCDE7D20DAC3F6008CE86A /* BitcoinOverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DCDE7C20DAC3F6008CE86A /* BitcoinOverviewViewController.swift */; };
+		17DCDE8020DAC635008CE86A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17DCDE7E20DAC635008CE86A /* Main.storyboard */; };
+		17DCDE8220DAC64E008CE86A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17DCDE8120DAC64E008CE86A /* Assets.xcassets */; };
+		17DCDE8420DAC7DA008CE86A /* HeaderTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DCDE8320DAC7DA008CE86A /* HeaderTitle.swift */; };
+		17DCDE8620DAC905008CE86A /* UIView+ConstrainVisualFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DCDE8520DAC905008CE86A /* UIView+ConstrainVisualFormat.swift */; };
+		17DCDE8B20DAD28F008CE86A /* ValueContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DCDE8A20DAD28F008CE86A /* ValueContainerView.swift */; };
 		85DE6EA09769DDBEF0B7CF19 /* Pods_Bitcoinzy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02F49C159269A6C7FF40BB2C /* Pods_Bitcoinzy.framework */; };
 /* End PBXBuildFile section */
 
@@ -20,10 +24,14 @@
 		17302CD21E97FEFD00795A63 /* Bitcoinzy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bitcoinzy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17302CD51E97FEFD00795A63 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		17302CD71E97FEFD00795A63 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		17302CDC1E97FEFD00795A63 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		17302CDE1E97FEFD00795A63 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		17302CE11E97FEFD00795A63 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		17302CE31E97FEFD00795A63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		17DCDE7C20DAC3F6008CE86A /* BitcoinOverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitcoinOverviewViewController.swift; sourceTree = "<group>"; };
+		17DCDE7F20DAC635008CE86A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		17DCDE8120DAC64E008CE86A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		17DCDE8320DAC7DA008CE86A /* HeaderTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderTitle.swift; sourceTree = "<group>"; };
+		17DCDE8520DAC905008CE86A /* UIView+ConstrainVisualFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+ConstrainVisualFormat.swift"; sourceTree = "<group>"; };
+		17DCDE8A20DAD28F008CE86A /* ValueContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueContainerView.swift; sourceTree = "<group>"; };
 		82ED48B729FC9613F51F840A /* Pods-Bitcoinzy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bitcoinzy.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bitcoinzy/Pods-Bitcoinzy.release.xcconfig"; sourceTree = "<group>"; };
 		85B522D89A08315D7D075BDA /* Pods-Bitcoinzy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bitcoinzy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bitcoinzy/Pods-Bitcoinzy.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -63,13 +71,41 @@
 			children = (
 				17302CD51E97FEFD00795A63 /* AppDelegate.swift */,
 				17302CD71E97FEFD00795A63 /* ViewController.swift */,
-				17302CDB1E97FEFD00795A63 /* Main.storyboard */,
-				17302CDE1E97FEFD00795A63 /* Assets.xcassets */,
-				17302CE01E97FEFD00795A63 /* LaunchScreen.storyboard */,
+				17DCDE7C20DAC3F6008CE86A /* BitcoinOverviewViewController.swift */,
 				17302CE31E97FEFD00795A63 /* Info.plist */,
+				17DCDE8920DAC948008CE86A /* Resources */,
+				17DCDE8720DAC936008CE86A /* View */,
+				17DCDE8820DAC93E008CE86A /* Utils */,
 			);
 			name = Bitcoinzy;
 			path = Bitquinzy;
+			sourceTree = "<group>";
+		};
+		17DCDE8720DAC936008CE86A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				17DCDE8320DAC7DA008CE86A /* HeaderTitle.swift */,
+				17DCDE8A20DAD28F008CE86A /* ValueContainerView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		17DCDE8820DAC93E008CE86A /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				17DCDE8520DAC905008CE86A /* UIView+ConstrainVisualFormat.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		17DCDE8920DAC948008CE86A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				17DCDE7E20DAC635008CE86A /* Main.storyboard */,
+				17DCDE8120DAC64E008CE86A /* Assets.xcassets */,
+				17302CE01E97FEFD00795A63 /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		43EAFA01E10377C6D35509BB /* Pods */ = {
@@ -101,7 +137,6 @@
 				17302CCF1E97FEFD00795A63 /* Frameworks */,
 				17302CD01E97FEFD00795A63 /* Resources */,
 				E92E19049C5CBB249006CEE8 /* [CP] Embed Pods Frameworks */,
-				3EF9A1C828E3A97F45947C5E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -119,12 +154,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "Jordan A. Pichler";
 				TargetAttributes = {
 					17302CD11E97FEFD00795A63 = {
 						CreatedOnToolsVersion = 8.3;
 						DevelopmentTeam = Q7YASEZ67U;
+						LastSwiftMigration = 0940;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -153,42 +189,30 @@
 			buildActionMask = 2147483647;
 			files = (
 				17302CE21E97FEFD00795A63 /* LaunchScreen.storyboard in Resources */,
-				17302CDF1E97FEFD00795A63 /* Assets.xcassets in Resources */,
-				17302CDD1E97FEFD00795A63 /* Main.storyboard in Resources */,
+				17DCDE8220DAC64E008CE86A /* Assets.xcassets in Resources */,
+				17DCDE8020DAC635008CE86A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3EF9A1C828E3A97F45947C5E /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Bitcoinzy/Pods-Bitcoinzy-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		6202F9E6ED9355E4DCE45D19 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Bitcoinzy-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E92E19049C5CBB249006CEE8 /* [CP] Embed Pods Frameworks */ = {
@@ -197,9 +221,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Bitcoinzy/Pods-Bitcoinzy-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -213,28 +244,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17DCDE8B20DAD28F008CE86A /* ValueContainerView.swift in Sources */,
 				17302CD61E97FEFD00795A63 /* AppDelegate.swift in Sources */,
+				17DCDE7D20DAC3F6008CE86A /* BitcoinOverviewViewController.swift in Sources */,
+				17DCDE8620DAC905008CE86A /* UIView+ConstrainVisualFormat.swift in Sources */,
 				17302CD81E97FEFD00795A63 /* ViewController.swift in Sources */,
+				17DCDE8420DAC7DA008CE86A /* HeaderTitle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		17302CDB1E97FEFD00795A63 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				17302CDC1E97FEFD00795A63 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		17302CE01E97FEFD00795A63 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				17302CE11E97FEFD00795A63 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		17DCDE7E20DAC635008CE86A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				17DCDE7F20DAC635008CE86A /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -250,15 +285,23 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -300,15 +343,23 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -340,10 +391,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = Q7YASEZ67U;
 				INFOPLIST_FILE = Bitquinzy/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jordanpichler.Bitcoinzy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -354,10 +407,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = Q7YASEZ67U;
 				INFOPLIST_FILE = Bitquinzy/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jordanpichler.Bitcoinzy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
