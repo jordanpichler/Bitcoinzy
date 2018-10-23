@@ -21,7 +21,7 @@ extension UIView {
         }
         
         self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: format,
-                                                           options: NSLayoutFormatOptions(),
+                                                           options: NSLayoutConstraint.FormatOptions(),
                                                            metrics: nil,
                                                            views: viewDictionary))
 

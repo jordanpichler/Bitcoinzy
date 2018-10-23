@@ -17,6 +17,7 @@
 		17DCDE8620DAC905008CE86A /* UIView+ConstrainVisualFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DCDE8520DAC905008CE86A /* UIView+ConstrainVisualFormat.swift */; };
 		17DCDE8B20DAD28F008CE86A /* ValueContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DCDE8A20DAD28F008CE86A /* ValueContainerView.swift */; };
 		17DCDE8D20DAD5BB008CE86A /* ValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DCDE8C20DAD5BB008CE86A /* ValueView.swift */; };
+		17DCDE8F20DE595B008CE86A /* BitcoinExchangeRateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DCDE8E20DE595B008CE86A /* BitcoinExchangeRateManager.swift */; };
 		85DE6EA09769DDBEF0B7CF19 /* Pods_Bitcoinzy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02F49C159269A6C7FF40BB2C /* Pods_Bitcoinzy.framework */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +35,7 @@
 		17DCDE8520DAC905008CE86A /* UIView+ConstrainVisualFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+ConstrainVisualFormat.swift"; sourceTree = "<group>"; };
 		17DCDE8A20DAD28F008CE86A /* ValueContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueContainerView.swift; sourceTree = "<group>"; };
 		17DCDE8C20DAD5BB008CE86A /* ValueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueView.swift; sourceTree = "<group>"; };
+		17DCDE8E20DE595B008CE86A /* BitcoinExchangeRateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitcoinExchangeRateManager.swift; sourceTree = "<group>"; };
 		82ED48B729FC9613F51F840A /* Pods-Bitcoinzy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bitcoinzy.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bitcoinzy/Pods-Bitcoinzy.release.xcconfig"; sourceTree = "<group>"; };
 		85B522D89A08315D7D075BDA /* Pods-Bitcoinzy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bitcoinzy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bitcoinzy/Pods-Bitcoinzy.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -74,6 +76,7 @@
 				17302CD51E97FEFD00795A63 /* AppDelegate.swift */,
 				17302CD71E97FEFD00795A63 /* ViewController.swift */,
 				17DCDE7C20DAC3F6008CE86A /* BitcoinOverviewViewController.swift */,
+				17DCDE8E20DE595B008CE86A /* BitcoinExchangeRateManager.swift */,
 				17302CE31E97FEFD00795A63 /* Info.plist */,
 				17DCDE8920DAC948008CE86A /* Resources */,
 				17DCDE8720DAC936008CE86A /* View */,
@@ -163,7 +166,7 @@
 					17302CD11E97FEFD00795A63 = {
 						CreatedOnToolsVersion = 8.3;
 						DevelopmentTeam = Q7YASEZ67U;
-						LastSwiftMigration = 0940;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -249,6 +252,7 @@
 			files = (
 				17DCDE8B20DAD28F008CE86A /* ValueContainerView.swift in Sources */,
 				17302CD61E97FEFD00795A63 /* AppDelegate.swift in Sources */,
+				17DCDE8F20DE595B008CE86A /* BitcoinExchangeRateManager.swift in Sources */,
 				17DCDE7D20DAC3F6008CE86A /* BitcoinOverviewViewController.swift in Sources */,
 				17DCDE8620DAC905008CE86A /* UIView+ConstrainVisualFormat.swift in Sources */,
 				17DCDE8D20DAD5BB008CE86A /* ValueView.swift in Sources */,
@@ -399,8 +403,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jordanpichler.Bitcoinzy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -415,8 +418,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jordanpichler.Bitcoinzy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
