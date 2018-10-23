@@ -15,13 +15,15 @@ class ValueView: UIView {
 
     // MARK: - Properties -
     
+    var shouldSetupConstraints = true
+
     var title = "Title" {
         didSet {
             titleLabel.text = title
         }
     }
     
-    var value: Float = 123.45{
+    var value: Float = 123.45 {
         didSet {
             valueLabel.text = "\(value)"
         }
@@ -63,12 +65,22 @@ class ValueView: UIView {
     convenience init(title: String, value: Float) {
         self.init()
         self.title = title
+        titleLabel.text = title
+        
         self.value = value
+        valueLabel.text = "\(value)"
     }
     
-    func setupConstraints() {
+    override func updateConstraints() {
+        if shouldSetupConstraints {
+            shouldSetupConstraints = false
+        }
+
         addConstraintsWithFormat(format: "H:|[v0]", views: titleLabel)
         addConstraintsWithFormat(format: "H:|[v0]", views: valueLabel)
         addConstraintsWithFormat(format: "V:|[v0]-[v1]|", views: titleLabel, valueLabel)
+        
+        super.updateConstraints()
+
     }
 }

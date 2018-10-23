@@ -16,13 +16,15 @@ class ValueContainerView: UIView {
     
     // MARK: - Properties -
     
-    var mainValue: ValueView!
-    var subValues: [ValueView]!
+    var mainValue: ValueView!   // The big one
+    var subValues: [ValueView]! // The small ones
     
     // MARK: - Initializers -
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        self.backgroundColor = .red
+        
     }
     
     required init?(coder aDecoder: NSCoder) {

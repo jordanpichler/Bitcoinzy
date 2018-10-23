@@ -11,20 +11,23 @@ import UIKit
 class BitcoinOverviewViewController: UIViewController {
 
     var header = HeaderTitle()
+    var valueSection = ValueContainerView()
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .white
+        super.viewDidLoad()    
+    }
     
-        view.addSubview(header)
-        view.addConstraintsWithFormat(format: "V:|[v0]", views: header)
-        view.addConstraintsWithFormat(format: "H:|[v0]|", views: header)
-        header.setupConstraints()
+    override func loadView() {
+        view = UIView()
+        view.backgroundColor = .white
         
-        let eixampleValue = ValueView(title: "Oye Tío", value: 6969)
-        view.addSubview(eixampleValue)
-        view.addConstraintsWithFormat(format: "V:[v0][v1]", views: header, eixampleValue)
-        view.addConstraintsWithFormat(format: "H:|[v0]", views: eixampleValue)
-        eixampleValue.setupConstraints()
+        // Add header & value section
+        view.addSubview(header)
+        view.addSubview(valueSection)
+        
+        view.addConstraintsWithFormat(format: "V:|[v0]-25-[v1]|", views: header, valueSection)
+        view.addConstraintsWithFormat(format: "H:|[v0]|", views: header)
+        view.addConstraintsWithFormat(format: "H:|[v0]|", views: valueSection)
+        
     }
 }
